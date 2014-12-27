@@ -14,6 +14,7 @@
 		DE62B2D51A47A1F500E7C565 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE62B2D41A47A1F500E7C565 /* Images.xcassets */; };
 		DE62B2D81A47A1F500E7C565 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE62B2D61A47A1F500E7C565 /* LaunchScreen.xib */; };
 		DE62B2E41A47A1F500E7C565 /* Project_EulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE62B2E31A47A1F500E7C565 /* Project_EulerTests.m */; };
+		DE7C4ADD1A4F58B40048E24E /* EulerDataStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7C4ADC1A4F58B40048E24E /* EulerDataStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		DE62B2DD1A47A1F500E7C565 /* Project EulerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project EulerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE62B2E21A47A1F500E7C565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE62B2E31A47A1F500E7C565 /* Project_EulerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Project_EulerTests.m; sourceTree = "<group>"; };
+		DE7C4ADB1A4F58B40048E24E /* EulerDataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EulerDataStorage.h; sourceTree = "<group>"; };
+		DE7C4ADC1A4F58B40048E24E /* EulerDataStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EulerDataStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				DE62B2CC1A47A1F500E7C565 /* AppDelegate.m */,
 				DE62B2CE1A47A1F500E7C565 /* ViewController.h */,
 				DE62B2CF1A47A1F500E7C565 /* ViewController.m */,
+				DE7C4ADB1A4F58B40048E24E /* EulerDataStorage.h */,
+				DE7C4ADC1A4F58B40048E24E /* EulerDataStorage.m */,
 				DE62B2D11A47A1F500E7C565 /* Main.storyboard */,
 				DE62B2D41A47A1F500E7C565 /* Images.xcassets */,
 				DE62B2D61A47A1F500E7C565 /* LaunchScreen.xib */,
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE62B2D01A47A1F500E7C565 /* ViewController.m in Sources */,
+				DE7C4ADD1A4F58B40048E24E /* EulerDataStorage.m in Sources */,
 				DE62B2CD1A47A1F500E7C565 /* AppDelegate.m in Sources */,
 				DE62B2CA1A47A1F500E7C565 /* main.m in Sources */,
 			);
@@ -412,6 +418,7 @@
 				DE62B2E91A47A1F500E7C565 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE62B2EA1A47A1F500E7C565 /* Build configuration list for PBXNativeTarget "Project EulerTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				DE62B2EC1A47A1F500E7C565 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

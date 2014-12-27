@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     NSLog(@"euler 1 is: %d\n\n", [self eulerProblem1]);
     NSLog(@"euler 2 is: %d\n\n", [self eulerProblem2]);
+    [self isItPrime];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +70,43 @@
     return evenSum;
     
 }
+
+-(BOOL)isItPrime
+{
+    BOOL isPrime = NO;
+
+    for (int i = 0; i<100; i++) {
+        if (i < 2) {
+            NSLog(@"%d is not prime, because it's less than 2", i);
+        }
+        for (int j = 2; j<i; j++) {
+            if (i % j == 0) {
+                isPrime = NO;
+                j = i-1;
+            } else {
+                isPrime = YES;
+            }
+            
+            if (j == i-1) {
+                if (isPrime == YES) {
+                    NSLog(@"%d is prime", i);
+                } else {
+                    NSLog(@"%d is not prime", i);
+                }
+            }
+        }
+    }
+    return isPrime;
+}
+
+-(void)EulerProblem13
+{
+
+}
+
+
+
+
 
 
 @end
