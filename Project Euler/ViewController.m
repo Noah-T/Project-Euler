@@ -17,9 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"euler 1 is: %d\n\n", [self eulerProblem1]);
-    NSLog(@"euler 2 is: %d\n\n", [self eulerProblem2]);
-    [self isItPrime];
+    //NSLog(@"euler 1 is: %d\n\n", [self eulerProblem1]);
+    //NSLog(@"euler 2 is: %d\n\n", [self eulerProblem2]);
+    NSLog(@"NSUIntegerMax is: %lu", NSUIntegerMax);
+
+     NSLog(@"maxPrimeFactor is: %lu",[self eulerProblem3]);
+    NSLog(@"hello from after the function");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,28 +74,50 @@
     
 }
 
--(BOOL)isItPrime
+-(NSUInteger)eulerProblem3{
+    NSLog(@"hi from the start of euler 3");
+    NSUInteger maxPrimeFactor = 0;
+    NSUInteger numberFromProblem = 600851475143;
+    
+    for (NSUInteger i = 2; i<numberFromProblem; i++) {
+        //if the number is divisble by i
+        if (numberFromProblem % i == 0) {
+            //if i is prime
+            if ([self isItPrime:i] == 1) {
+                //if i is greater than the current max prime factor
+                if (i > maxPrimeFactor) {
+                    maxPrimeFactor = i;
+                    NSLog(@"the max prime factor from inside the function is: %lu", maxPrimeFactor);
+                }
+            }
+        }
+        
+    }
+    
+        return maxPrimeFactor;
+}
+
+-(BOOL)isItPrime:(NSUInteger)num
 {
     BOOL isPrime = NO;
-
-    for (int i = 0; i<100; i++) {
-        if (i < 2) {
-            NSLog(@"%d is not prime, because it's less than 2", i);
+    
+    if (num < 2) {
+        NSLog(@"%lu is not prime, because it's less than 2", num);
+        return NO;
+    }
+    for (NSUInteger i = 2; i<num; i++) {
+        if (num % i == 0) {
+            isPrime = NO;
+            i = num-1;
+        } else {
+            isPrime = YES;
         }
-        for (int j = 2; j<i; j++) {
-            if (i % j == 0) {
-                isPrime = NO;
-                j = i-1;
+        
+        if (i == num-1) {
+            if (isPrime == YES) {
+                NSLog(@"%lu is prime", num);
             } else {
-                isPrime = YES;
-            }
-            
-            if (j == i-1) {
-                if (isPrime == YES) {
-                    NSLog(@"%d is prime", i);
-                } else {
-                    NSLog(@"%d is not prime", i);
-                }
+                NSLog(@"%lu is not prime", num);
             }
         }
     }
@@ -101,7 +126,7 @@
 
 -(void)EulerProblem13
 {
-
+    
 }
 
 
