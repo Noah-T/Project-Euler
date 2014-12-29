@@ -17,12 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSLog(@"the return value from euler4 is: %lu", [self eulerProblem4]);
     //NSLog(@"euler 1 is: %d\n\n", [self eulerProblem1]);
     //NSLog(@"euler 2 is: %d\n\n", [self eulerProblem2]);
-    NSLog(@"NSUIntegerMax is: %lu", NSUIntegerMax);
+    //NSLog(@"NSUIntegerMax is: %lu", NSUIntegerMax);
 
-     NSLog(@"maxPrimeFactor is: %lu",[self eulerProblem3]);
-    NSLog(@"hello from after the function");
+     //NSLog(@"maxPrimeFactor is: %lu",[self eulerProblem3]);
+    //NSLog(@"hello from after the function");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,6 +99,20 @@
         return maxPrimeFactor;
 }
 
+-(NSUInteger)eulerProblem4{
+    int maxPalindrome = 0;
+    for (int i = 1; i < 1000; i++) {
+        for (int j = i; j < 1000; j++) {
+            if ([self isNumberAPalindrome:i*j]) {
+                if (i*j > maxPalindrome) {
+                    maxPalindrome = i*j;
+                }
+            }
+        }
+    }
+    return maxPalindrome;
+}
+
 -(BOOL)isItPrime:(NSUInteger)num
 {
     BOOL isPrime = NO;
@@ -123,6 +139,31 @@
     }
     return isPrime;
 }
+
+-(BOOL)isNumberAPalindrome:(int)number
+{
+    BOOL isAPalindrome;
+    NSString *stringWithNumber = [NSString stringWithFormat:@"%d", number];
+    unichar firstChar = [stringWithNumber characterAtIndex:0];
+    unichar lastChar = [stringWithNumber characterAtIndex:stringWithNumber.length-1];
+    
+    unsigned long halfTheLengthOfTheString = stringWithNumber.length/2;
+    
+    for (int i = 0; i <= halfTheLengthOfTheString ; i++) {
+        if ([stringWithNumber characterAtIndex:i] != [stringWithNumber characterAtIndex: stringWithNumber.length-1-i]) {
+            isAPalindrome = NO;
+            return isAPalindrome;
+        }
+    }
+    
+    if (firstChar == lastChar) {
+        NSLog(@"these are the same");
+    }
+    NSLog(@"%@", stringWithNumber);
+    isAPalindrome = YES;
+    return isAPalindrome;
+}
+
 
 -(void)EulerProblem13
 {
