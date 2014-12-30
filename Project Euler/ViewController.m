@@ -18,12 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSLog(@"the return value from euler4 is: %lu", [self eulerProblem4]);
+    
+    NSLog(@"the return value from euler5 is: %lu", [self eulerProblem5]);
+    //NSLog(@"the return value from euler4 is: %lu", [self eulerProblem4]);
     //NSLog(@"euler 1 is: %d\n\n", [self eulerProblem1]);
     //NSLog(@"euler 2 is: %d\n\n", [self eulerProblem2]);
     //NSLog(@"NSUIntegerMax is: %lu", NSUIntegerMax);
-
-     //NSLog(@"maxPrimeFactor is: %lu",[self eulerProblem3]);
+    
+    //NSLog(@"maxPrimeFactor is: %lu",[self eulerProblem3]);
     //NSLog(@"hello from after the function");
 }
 
@@ -96,7 +98,7 @@
         
     }
     
-        return maxPrimeFactor;
+    return maxPrimeFactor;
 }
 
 -(NSUInteger)eulerProblem4{
@@ -111,6 +113,26 @@
         }
     }
     return maxPalindrome;
+}
+
+-(NSUInteger)eulerProblem5
+{
+    BOOL evenlyDivisibleForOneThroughTwenty;
+    for (NSUInteger i = 2520; evenlyDivisibleForOneThroughTwenty == NO; i++) {
+        evenlyDivisibleForOneThroughTwenty = NO;
+        for (NSUInteger j = 1; j <= 20; j++) {
+            if (i % j != 0) {
+                evenlyDivisibleForOneThroughTwenty = NO;
+                j = 21;
+            } else {
+                evenlyDivisibleForOneThroughTwenty = YES;
+                if (j == 20) {
+                    return i;
+                }
+            }
+        }
+    }
+    return 1;
 }
 
 -(BOOL)isItPrime:(NSUInteger)num
