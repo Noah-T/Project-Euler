@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    NSLog(@"the return value from euler5 is: %lu", [self eulerProblem5]);
+    NSLog(@"the return value from euler6 is: %lu", [self eulerProlbem6]);
+    //NSLog(@"the return value from euler5 is: %lu", [self eulerProblem5]);
     //NSLog(@"the return value from euler4 is: %lu", [self eulerProblem4]);
     //NSLog(@"euler 1 is: %d\n\n", [self eulerProblem1]);
     //NSLog(@"euler 2 is: %d\n\n", [self eulerProblem2]);
@@ -133,6 +133,21 @@
         }
     }
     return 1;
+}
+
+-(NSUInteger)eulerProlbem6
+{
+    NSUInteger runningSum = 0;
+    NSUInteger runningSquareSum = 0;
+    
+    for (NSUInteger i = 1; i <=100; i++) {
+        runningSum += i;
+        runningSquareSum += i*i;
+    }
+    
+    NSUInteger finalAnswer =  (runningSum * runningSum) - runningSquareSum;
+
+    return finalAnswer;
 }
 
 -(BOOL)isItPrime:(NSUInteger)num
