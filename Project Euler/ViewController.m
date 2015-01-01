@@ -18,7 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSLog(@"the return value from euler6 is: %lu", [self eulerProlbem6]);
+    
+    NSLog(@"the return value from euler10 is: %lu", [self eulerProblem10]);
+    //NSLog(@"the return value from euler6 is: %lu", [self eulerProlbem6]);
     //NSLog(@"the return value from euler5 is: %lu", [self eulerProblem5]);
     //NSLog(@"the return value from euler4 is: %lu", [self eulerProblem4]);
     //NSLog(@"euler 1 is: %d\n\n", [self eulerProblem1]);
@@ -95,9 +97,7 @@
                 }
             }
         }
-        
     }
-    
     return maxPrimeFactor;
 }
 
@@ -148,6 +148,17 @@
     NSUInteger finalAnswer =  (runningSum * runningSum) - runningSquareSum;
 
     return finalAnswer;
+}
+
+-(NSUInteger)eulerProblem10
+{
+    NSUInteger runningSumOfPrimeNumbers = 2;
+    for (NSUInteger i = 2; i <2000000; i++) {
+        if ([self isItPrime:i]) {
+            runningSumOfPrimeNumbers += i;
+        }
+    }
+    return runningSumOfPrimeNumbers;
 }
 
 -(BOOL)isItPrime:(NSUInteger)num
