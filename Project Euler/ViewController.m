@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    NSLog(@"the return value from euler10 is: %lu", [self eulerProblem10]);
+    NSLog(@"%d", [self isItPrime:2]);
+    //NSLog(@"the return value from euler10 is: %lu", [self eulerProblem10]);
     //NSLog(@"the return value from euler6 is: %lu", [self eulerProlbem6]);
     //NSLog(@"the return value from euler5 is: %lu", [self eulerProblem5]);
     //NSLog(@"the return value from euler4 is: %lu", [self eulerProblem4]);
@@ -152,7 +152,7 @@
 
 -(NSUInteger)eulerProblem10
 {
-    NSUInteger runningSumOfPrimeNumbers = 2;
+    NSUInteger runningSumOfPrimeNumbers = 0;
     for (NSUInteger i = 2; i <2000000; i++) {
         if ([self isItPrime:i]) {
             runningSumOfPrimeNumbers += i;
@@ -168,7 +168,12 @@
     if (num < 2) {
         NSLog(@"%lu is not prime, because it's less than 2", num);
         return NO;
+    } else if(num == 2){
+        NSLog(@"%lu is prime", num);
+        isPrime = YES;
+        return isPrime;
     }
+    
     for (NSUInteger i = 2; i<num; i++) {
         if (num % i == 0) {
             isPrime = NO;
