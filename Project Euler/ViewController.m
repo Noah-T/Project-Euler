@@ -300,14 +300,16 @@
 {
     BOOL doesItHaveEnoughDivisors = NO;
     NSUInteger numberOfDivisors = 0;
-    for (NSUInteger i = 0; i <= number ; i++) {
+    for (NSUInteger i = 1; i <= number ; i++) {
             if (number % i == 0) {
                 numberOfDivisors++;
                 if (numberOfDivisors == 500) {
+                    NSLog(@"%lu has: %lu divisors", i, numberOfDivisors);
+
                     return YES;
                 }
             }
-        NSLog(@"%lu has: %lu divisors", i, numberOfDivisors);
+        
     }
     
     return doesItHaveEnoughDivisors;
