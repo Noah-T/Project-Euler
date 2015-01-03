@@ -18,8 +18,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSLog(@"%d", [self isItPrime:2]);
+    NSLog(@"euler 12 returns: %lu", [self eulerProblem12]);
+    //NSLog(@"generate triangle returns: %lu\n", [self generateTriangleNumber]);
+    //NSLog(@"%d", [self isItPrime:2]);
+    //NSLog(@"euler20 returns: %lu", [self eulerProblem20:60]);
     //NSLog(@"the return value from euler10 is: %lu", [self eulerProblem10]);
+    //NSLog(@"the return value from euler7 is %lu", [self eulerProblem7]);
     //NSLog(@"the return value from euler6 is: %lu", [self eulerProlbem6]);
     //NSLog(@"the return value from euler5 is: %lu", [self eulerProblem5]);
     //NSLog(@"the return value from euler4 is: %lu", [self eulerProblem4]);
@@ -149,6 +153,21 @@
 
     return finalAnswer;
 }
+-(NSUInteger)eulerProblem7{
+    NSUInteger nthPrimeNumberIndex = 1;
+    NSUInteger nthPrimeNumberValue = 0;
+    
+    for (NSUInteger i = 2; nthPrimeNumberIndex <= 10001; i++) {
+        if ([self isItPrime:i]) {
+            nthPrimeNumberIndex++;
+            nthPrimeNumberValue = i;
+        }
+    }
+    NSLog(@"primeNumberIndex = %lu", nthPrimeNumberIndex);
+    NSLog(@"primeNumberValue = %lu", nthPrimeNumberValue);
+    return nthPrimeNumberValue;
+    
+}
 
 -(NSUInteger)eulerProblem10
 {
@@ -159,6 +178,51 @@
         }
     }
     return runningSumOfPrimeNumbers;
+}
+
+-(NSUInteger)eulerProblem20:(NSUInteger)myNumber
+{
+    if (myNumber == 1) {
+        return myNumber;
+    }
+    return myNumber * [self eulerProblem20:myNumber-1];
+
+}
+
+-(NSUInteger)eulerProblem12
+{
+    NSMutableArray *triangleNumbers = [NSMutableArray array];
+
+        NSUInteger currentTriangle = 0;
+    BOOL hasEnoughDivisors = NO;
+    
+
+    for (NSUInteger i = 1; ; i++) {
+        if (currentTriangle == 0) {
+            currentTriangle += i;
+            if ([self doesItHave500Divisors:currentTriangle]) {
+                hasEnoughDivisors = YES;
+                return currentTriangle;
+            }
+            [triangleNumbers addObject:[NSNumber numberWithInteger:currentTriangle]];
+            NSLog(@"currentTriangle is: %lu\n", currentTriangle);
+        } else {
+            currentTriangle += i;
+            if ([self doesItHave500Divisors:currentTriangle]) {
+                hasEnoughDivisors = YES;
+                return currentTriangle;
+            }
+            [triangleNumbers addObject:[NSNumber numberWithInteger:currentTriangle]];
+            NSLog(@"currentTriange is: %lu\n", currentTriangle);
+        }
+    }
+
+    
+    
+    
+    
+
+
 }
 
 -(BOOL)isItPrime:(NSUInteger)num
@@ -217,6 +281,37 @@
     return isAPalindrome;
 }
 
+-(NSUInteger)generateTriangleNumber
+{
+    NSUInteger currentTriangle = 0;
+    for (NSUInteger i = 1; i <= 10; i++) {
+        if (currentTriangle == 0) {
+            currentTriangle += i;
+            NSLog(@"currentTriangle is: %lu\n", currentTriangle);
+        } else {
+            currentTriangle += i;
+            NSLog(@"currentTriange is: %lu\n", currentTriangle);
+        }
+    }
+    return currentTriangle;
+}
+
+-(BOOL)doesItHave500Divisors:(NSUInteger)number
+{
+    BOOL doesItHaveEnoughDivisors = NO;
+    NSUInteger numberOfDivisors = 0;
+    for (NSUInteger i = 0; i <= number ; i++) {
+            if (number % i == 0) {
+                numberOfDivisors++;
+                if (numberOfDivisors == 500) {
+                    return YES;
+                }
+            }
+        NSLog(@"%lu has: %lu divisors", i, numberOfDivisors);
+    }
+    
+    return doesItHaveEnoughDivisors;
+}
 
 -(void)EulerProblem13
 {
